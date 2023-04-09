@@ -1,0 +1,13 @@
+@font-face {
+    font-family: "hankengrotesk";
+    src: url("./assets/fonts/HankenGrotesk-VariableFont_wght.ttf") format("truetype");
+    font-display: swap;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    font-family: "hankengrotesk";
+}
