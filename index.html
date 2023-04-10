@@ -1,24 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  <link rel="stylesheet" href="style.css"> 
-  <title>Frontend Mentor | Results summary component</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Frontend Mentor | Results summary component</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
-  
-  <!-- Your Result
-  76
-  of 100
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+    <div class="result">
+      <div class="title">Your Result</div>
+
+      <div class="scores">
+        <div class="score">76</div>
+        <div class="total-score">of 100</div>
+      </div>
+
+      <div class="remarks">
+        <div class="level">Great</div>
+        <div class="comment">
+          You scored higher than 65% of the people who have taken these tests.
+        </div>
+      </div>
+    </div>
+
+    <div class="summary">
+      <div class="title">Summary</div>
+      <div class="sections">
+        <div class="section reaction">
+          <div class="section-name">Reaction</div>
+          <div class="section-score">80 / 100</div>
+        </div>
+        <div class="section memory">
+          <div class="section-name">Memory</div>
+          <div class="section-score">92 / 100</div>
+        </div>
+        <div class="section verbal">
+          <div class="section-name">Verbal</div>
+          <div class="section-score">61 / 100</div>
+        </div>
+        <div class="section visual">
+          <div class="section-name">Visual</div>
+          <div class="section-score">72 / 100</div>
+        </div>
+      </div>
+      <div class="continue-button">Continue</div>
+    </div>
+    <!-- Your Result
 
   Great
   You scored higher than 65% of the people who have taken these tests.
@@ -38,10 +85,10 @@
   72 / 100
 
   Continue -->
-  
-  <!-- <div class="attribution">
+
+    <!-- <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Hexasix</a>.
   </div> -->
-</body>
+  </body>
 </html>
