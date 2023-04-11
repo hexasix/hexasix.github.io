@@ -27,13 +27,8 @@
     format("truetype");
   font-display: swap;
 }
+:root{
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  font-size: 18px;
-  font-family: "hankengrotesk";
   --gradient-color-one: hsl(252, 100%, 67%);
   --gradient-color-two: hsl(241, 81%, 54%);
   --circle-gradient-color-one: hsla(256, 72%, 46%, 1);
@@ -46,6 +41,18 @@
   --neutral-color-pale-blue: hsl(221, 100%, 96%);
   --neutral-color-light-lavender: hsl(241, 100%, 89%);
   --neutral-color-dark-gray-blue: hsl(224, 30%, 27%);
+  /* transparency */
+  --primary-color-light-red-trans: hsla(0, 100%, 67%,.1);
+  --primary-color-orangey-yellow-trans: hsl(39, 100%, 56%,.1);
+  --primary-color-green-teal-trans: hsl(166, 100%, 37%,.1);
+  --primary-color-cobalt-blue-trans: hsl(234, 85%, 45%,.1);
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-size: 18px;
+  font-family: "hankengrotesk";
 }
 .wrapper {
   /* background-color: blanchedalmond; */
@@ -64,8 +71,9 @@
 }
 .wrapper .result,.wrapper .summary{
   border-radius: 20px;
-  padding: 25px;
+  padding: 30px;
 }
+/* left */
 .wrapper .result {
   background-image: linear-gradient(
     var(--gradient-color-one),
@@ -118,19 +126,50 @@
   color: var(--neutral-color-light-lavender);
   font-size: 0.8rem;
 }
-
+/* right */
+.wrapper .summary{
+  border-radius: 20px;
+  padding: 30px;
+}
 .wrapper .summary{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
+.wrapper .summary .title{
+  /* color: blue; */
+  font-weight: 700;
+}
 .wrapper .summary .sections{
   display: flex;
   flex-direction: column;
   gap: 20px;
+  /* width: 80%; */
 }
-.wrapper .summary .sections *{
+.wrapper .summary .sections .section{
   display: flex;
+  justify-content: space-between;
   height: 2rem;
-  line-height: 2rem;
+  line-height: calc(2rem - 14px);
+  padding: 7px;
+  border-radius: 5px;
+}
+.wrapper .summary .sections .reaction{
+  background-color:var(--primary-color-light-red-trans);
+  color: var(--primary-color-light-red);
+}
+.wrapper .summary .sections .memory{
+  background-color:var(--primary-color-orangey-yellow-trans);
+  color: var(--primary-color-orangey-yellow);
+}
+.wrapper .summary .sections .verbal{
+  background-color:var(--primary-color-green-teal-trans);
+  color: var(--primary-color-green-teal);
+}
+.wrapper .summary .sections .visual{
+  background-color:var(--primary-color-cobalt-blue-trans);
+  color: var(--primary-color-cobalt-blue);
+}
+.section-name,.section-score{
+  font-size: 0.7rem;
 }
