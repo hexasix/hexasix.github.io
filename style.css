@@ -45,7 +45,7 @@
   --neutral-color-white: hsl(0, 0%, 100%);
   --neutral-color-pale-blue: hsl(221, 100%, 96%);
   --neutral-color-light-lavender: hsl(241, 100%, 89%);
-  --neutral-coolor-dark-gray-blue: hsl(224, 30%, 27%);
+  --neutral-color-dark-gray-blue: hsl(224, 30%, 27%);
 }
 .wrapper {
   /* background-color: blanchedalmond; */
@@ -62,12 +62,15 @@
     width: 100vw;
   }
 }
+.wrapper .result,.wrapper .summary{
+  border-radius: 20px;
+  padding: 25px;
+}
 .wrapper .result {
   background-image: linear-gradient(
     var(--gradient-color-one),
     var(--gradient-color-two)
   );
-  padding: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -96,6 +99,10 @@
   font-size:2.5rem;
   color: white;
 }
+.wrapper .result .scores .total-score{
+  color:var(--neutral-color-light-lavender);
+  font-size: 0.8rem;
+}
 
 .wrapper .result .remarks{
   text-align: center;
@@ -103,6 +110,27 @@
   flex-direction: column;
   gap: 10px;
 }
+.wrapper .result .remarks .level{
+  color: var(--neutral-color-white);
+  font-size: 1.3rem;
+}
 .wrapper .result .remarks .comment{
+  color: var(--neutral-color-light-lavender);
   font-size: 0.8rem;
+}
+
+.wrapper .summary{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.wrapper .summary .sections{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.wrapper .summary .sections *{
+  display: flex;
+  height: 2rem;
+  line-height: 2rem;
 }
