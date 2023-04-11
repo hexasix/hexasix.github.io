@@ -173,6 +173,23 @@
   background-color:var(--primary-color-cobalt-blue-trans);
   color: var(--primary-color-cobalt-blue);
 }
+.wrapper .summary .continue-button{
+  text-align: center;
+  /* border: 1px solid black; */
+  border-radius: 19px/50%;
+  height: 2rem;
+  line-height: 2rem;
+  font-size: 0.7rem;
+  color: var(--neutral-color-white);
+  background-color: var(--neutral-color-dark-gray-blue);
+}
+.wrapper .summary .continue-button:hover{
+  background-image:  linear-gradient(
+    var(--gradient-color-one),
+    var(--gradient-color-two)
+  );
+;
+}
 .section-name,.section-score{
   font-size: 0.7rem;
 }
