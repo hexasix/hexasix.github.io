@@ -58,7 +58,7 @@
 .wrapper {
   /* background-color: blanchedalmond; */
   margin: 150px auto;
-  width: 500px;
+  width: 35rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   box-shadow: 10px 10px 10px rgba(0, 0, 0,.3 );
@@ -70,6 +70,11 @@
     display: grid;
     grid-template-columns: 1fr;
     width: 100vw;
+  }
+  .wrapper .summary{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
 }
 .wrapper .result,.wrapper .summary{
@@ -91,11 +96,11 @@
 
 .wrapper .result .title{
   color:var(--neutral-color-light-lavender);
-  font-size: 1.2rem;
+  font-size: 1.25rem;
 }
 .wrapper .result .scores {
-  height: 120px;
-  width: 120px;
+  height: 10rem;
+  width: 10rem;
   border-radius: 100%;
   background-image: linear-gradient(
     var(--circle-gradient-color-one),
@@ -107,7 +112,7 @@
   align-items: center;
 }
 .wrapper .result .scores .score{
-  font-size:2.5rem;
+  font-size:3.5rem;
   font-weight: 800;
   color: white;
 }
@@ -120,15 +125,15 @@
   text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
 }
 .wrapper .result .remarks .level{
   color: var(--neutral-color-white);
-  font-size: 1.3rem;
+  font-size: 1.5rem;
 }
 .wrapper .result .remarks .comment{
   color: var(--neutral-color-light-lavender);
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 /* right */
 .wrapper .summary{
@@ -152,10 +157,10 @@
 .wrapper .summary .sections .section{
   display: flex;
   justify-content: space-between;
-  height: 2rem;
-  line-height: calc(2rem - 14px);
+  height: 2.5rem;
+  line-height: calc(2.5rem - 14px);
   padding: 7px;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 .wrapper .summary .sections .reaction{
   background-color:var(--primary-color-light-red-trans);
@@ -176,10 +181,10 @@
 .wrapper .summary .continue-button{
   text-align: center;
   /* border: 1px solid black; */
-  border-radius: 19px/50%;
-  height: 2rem;
-  line-height: 2rem;
-  font-size: 0.7rem;
+  border-radius: 30px/50%;
+  height: 3rem;
+  line-height: 3rem;
+  font-size: 1rem;
   color: var(--neutral-color-white);
   background-color: var(--neutral-color-dark-gray-blue);
 }
@@ -191,5 +196,11 @@
 ;
 }
 .section-name,.section-score{
-  font-size: 0.7rem;
+  font-size: 1rem;
+}
+.section-score .full-score {
+  color: grey;
+}
+.section-score .score-get{
+  color:var(--neutral-color-dark-gray-blue);
 }
