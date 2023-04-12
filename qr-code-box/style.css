@@ -14,10 +14,13 @@ body{
 body .wrapper{
     
     width: 23rem;
-    margin: 40px auto;
+    margin: 200px auto;
     background-color: var(--color-white);
     border-radius: 20px;
+    
 }
+/* or add display:flow-root to .wrapper */
+/* both solves margin collapsing */
 .wrapper::before{
     content: "";
     display: table;
@@ -27,9 +30,9 @@ body .wrapper{
     display: table;
 }
 .qr-code-wrapper{
-    width: 19rem;
-    height: 19rem;
-    margin: 2rem auto 0;
+    width: 20rem;
+    height: 20rem;
+    margin: 20px auto 0;
     border-radius: 9px;
     overflow: hidden;
 }
