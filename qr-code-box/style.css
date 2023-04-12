@@ -10,11 +10,15 @@
 }
 body{
     background-color: var(--color-lightgrey);
+    display: grid;
+    min-height: 100vh;
+    place-items: center;
+    /* justify-content: center; */
+    /* align-content: center; */
 }
 body .wrapper{
     
     width: 23rem;
-    margin: 200px auto;
     background-color: var(--color-white);
     border-radius: 20px;
     
