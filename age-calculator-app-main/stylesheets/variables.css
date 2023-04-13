@@ -4,12 +4,15 @@
   */
 
   /* primary */
-    --primary-light-red: 0, 100%, 67%;
-    --primary-orangey-yellow: 39, 100%, 56%;
-    --primary-green-teal: 166, 100%, 37%;
-    --primary-cobalt-blue: 234, 85%, 45%;
-  /* gradients */
-    --gradient-light-slate-blue:252,100%,67%;
-    --gradient-light-royal-blue:241,81%,54%;
+  --primary-color-purple: 259, 100%, 65%;
+  --primary-color-light-red: 0, 100%, 67%;
+  /* neutral */
+  --neutral-color-white: 0, 0%, 100%;
+  --neutral-color-off-white: 0, 0%, 94%;
+  --neutral-color-light-grey: 0, 0%, 86%;
+  --neutral-color-smokey-grey: 0, 0%, 44%;
+  --neutral-color-off-black: 0, 0%, 8%;
+  /* typography */
+  --font-size-input: 32px;
 
 }

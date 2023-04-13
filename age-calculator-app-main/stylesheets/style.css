@@ -1,4 +1,23 @@
 @import url("./style-font.css");
+/* @import url("./variables.css"); */
+:root {
+  /*
+    colors 
+  */
+
+  /* primary */
+  --primary-color-purple: 259, 100%, 65%;
+  --primary-color-light-red: 0, 100%, 67%;
+  /* neutral */
+  --neutral-color-white: 0, 0%, 100%;
+  --neutral-color-off-white: 0, 0%, 94%;
+  --neutral-color-light-grey: 0, 0%, 86%;
+  --neutral-color-smokey-grey: 0, 0%, 44%;
+  --neutral-color-off-black: 0, 0%, 8%;
+  /* typography */
+  --font-size-input: 32px;
+
+}
 :root{
     font-size:16px;
     font-family: "poppins";
@@ -11,5 +30,37 @@
 body{
     display: grid;
     grid-template-rows: 1fr 11px;
+    place-items: center;
     min-height: calc(100vh - 13px);
+    background-color: hsl(var(--neutral-color-off-white));
+}
+main .wrapper{
+    /* background-color: red; */
+    /* height: 50px; */
+    --wrapper-padding:1.7rem;
+    position: relative;
+    width: 55rem;
+    padding:var(--wrapper-padding);
+    background-color: hsl(var(--neutral-color-white));
+}
+main .wrapper .inputs{
+    border-block-end:1px solid hsla(var(--neutral-color-smokey-grey),.5) ;
+    padding-block-end: 1rem;
+}
+main .inputs input{
+    height:calc(2rem * 1.2) ;
+}
+
+main .button{
+    --diameter:4rem;
+    position: absolute;
+    right:var(--wrapper-padding);
+    height: var(--diameter);
+    width: var(--diameter);
+    border-radius: 50%;
+    background-color: hsl(var(--primary-color-purple));
+}
+
+main .display :is(.year,.month,.day){
+    font-size: 4rem;
 }
