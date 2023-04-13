@@ -190,8 +190,9 @@ body{
   text-align: center;
   /* border: 1px solid black; */
   border-radius: 30px/50%;
-  height: 3rem;
-  line-height: 3rem;
+  --height:3rem;
+  height: var(--height);
+  line-height: var(--height);
   font-size: 1rem;
   color: var(--neutral-color-white);
   background-color: var(--neutral-color-dark-gray-blue);
