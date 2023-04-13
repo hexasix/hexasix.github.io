@@ -1,0 +1,15 @@
+:root {
+  /*
+    colors 
+  */
+
+  /* primary */
+    --primary-light-red: 0, 100%, 67%;
+    --primary-orangey-yellow: 39, 100%, 56%;
+    --primary-green-teal: 166, 100%, 37%;
+    --primary-cobalt-blue: 234, 85%, 45%;
+  /* gradients */
+    --gradient-light-slate-blue:252,100%,67%;
+    --gradient-light-royal-blue:241,81%,54%;
+
+}

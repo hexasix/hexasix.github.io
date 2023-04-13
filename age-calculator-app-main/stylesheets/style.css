@@ -1,0 +1,15 @@
+@import url("./style-font.css");
+:root{
+    font-size:16px;
+    font-family: "poppins";
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    display: grid;
+    grid-template-rows: 1fr 11px;
+    min-height: calc(100vh - 13px);
+}
