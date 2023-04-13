@@ -55,15 +55,23 @@
   font-family: "hankengrotesk";
   font-weight: 500;
 }
+body{
+  height: calc(100vh - 17px);
+  display: grid;
+  grid-template-rows: 1fr 11px;
+  /* grid-template-columns: 1fr; */
+  /* place-items: center; */
+}
 .wrapper {
   /* background-color: blanchedalmond; */
-  margin: 150px auto;
+  /* margin: 150px auto; */
   width: 35rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   box-shadow: 10px 10px 10px rgba(0, 0, 0,.3 );
   overflow: hidden;
   border-radius: 0 20px 20px 0;
+  place-self: center;
 }
 @media (max-width: 375px) {
   .wrapper {
