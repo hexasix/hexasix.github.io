@@ -107,9 +107,10 @@ body{
   font-size: 1.25rem;
 }
 .wrapper .result .scores {
-  height: 10rem;
-  width: 10rem;
-  border-radius: 100%;
+  --diameter:10rem;
+  height: var(--diameter);
+  width: var(--diameter);
+  border-radius: 50%;
   background-image: linear-gradient(
     var(--circle-gradient-color-one),
     var(--circle-gradient-color-two)
