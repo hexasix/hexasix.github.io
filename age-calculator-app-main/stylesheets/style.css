@@ -43,9 +43,16 @@ main .wrapper{
     padding:var(--wrapper-padding);
     background-color: hsl(var(--neutral-color-white));
 }
-main .wrapper .inputs{
+/* the box that contains all the input boxes */
+main .wrapper   .inputs{
+    display: flex;
+    gap: 2rem;
     border-block-end:1px solid hsla(var(--neutral-color-smokey-grey),.5) ;
     padding-block-end: 1rem;
+}
+main .wrapper div :has(input){
+    display: flex;
+    flex-direction: column;
 }
 main .inputs input{
     height:calc(2rem * 1.2) ;
