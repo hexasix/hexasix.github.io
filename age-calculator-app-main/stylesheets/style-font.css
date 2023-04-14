@@ -8,7 +8,7 @@
     font-family: "poppins";
     src:url("../assets/fonts/Poppins-Italic.ttf") format("truetype");
     font-weight: 400;
-    font-weight: italic;
+    font-style: italic;
     font-display: swap;
 }
 @font-face{
