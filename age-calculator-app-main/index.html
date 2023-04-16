@@ -31,26 +31,29 @@
     <main>
       <div class="wrapper">
         <div class="inputs">
-          <div>
+          <div class="day-input">
             <label for="day">DAY</label>
             <input type="text" id="day" placeholder="DD" />
+            <p class="warning-text">This field is required</p>
           </div>
           <div>
             <label for="month">MONTH</label>
             <input type="text" id="month" placeholder="MM" />
+            <p class="warning-text">This field is required</p>
           </div>
           <div>
             <label for="year">YEAR</label>
             <input type="text" id="year" placeholder="YYYY" />
+            <p class="warning-text">This field is required</p>
           </div>
         </div>
 
         <div class="button">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="46"
-            height="44"
-            viewBox="0 0 46 44"
+            width="170"
+            height="150"
+            viewBox="-20 -30 102 108"
           >
             <g fill="none" stroke="#FFF" stroke-width="2">
               <path
@@ -61,9 +64,9 @@
         </div>
 
         <div class="display">
-          <div class="year">-- years</div>
-          <div class="month">-- months</div>
-          <div class="day">-- days</div>
+          <div class="year"><span class="number">- -</span> years</div>
+          <div class="month"><span class="number">- -</span> months</div>
+          <div class="day"><span class="number">- -</span> days</div>
         </div>
       </div>
     </main>
