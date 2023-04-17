@@ -85,7 +85,7 @@ main .wrapper .inputs input{
 }
 /* warning Text */
 main .wrapper div:has(input) p{
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     font-weight: 400;
     font-style: italic;
     color:hsl(var(--primary-color-light-red));
