@@ -83,8 +83,19 @@ main .wrapper .inputs input{
     font-size: 1.3rem;
     font-weight: 700;
 }
-/* warning Text */
-main .wrapper div:has(input) p{
+/* warning Texts */
+
+/* empty */
+main .wrapper div:has(input) .empty-warning-text{
+    font-size: 0.6rem;
+    font-weight: 400;
+    font-style: italic;
+    color:hsl(var(--primary-color-light-red));
+    display: none;
+}
+
+/* invalid */
+main .wrapper div:has(input) .invalid-warning-text{
     font-size: 0.6rem;
     font-weight: 400;
     font-style: italic;

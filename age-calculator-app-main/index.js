@@ -4,49 +4,94 @@ const yearInput = document.querySelector("#year");
 const roundButton = document.querySelector(".button");
 const emptyWarningTexts = document.querySelectorAll(".empty-warning-text");
 const timestampNow = new Date().getTime();
+/**
+ * These are the value that users put
+ */
+let day;
+let month;
+let year;
+let userInputDate;
+
 const validation = (day, month, year) => {
   const currentYear = new Date().getFullYear();
-  const userInputYear = userInputDate.getFullYear();
+  let userInputYear;
   //If the inputs are empty
   let flag = true;
+
   if (!day) {
     emptyWarningTexts[0].style.display = "inline";
     flag = false;
   }
+  else{
+    emptyWarningTexts[0].style.display = "none";
+  }
+
   if (!month) {
     emptyWarningTexts[1].style.display = "inline";
     flag = false;
   }
+  else{
+    emptyWarningTexts[1].style.display = "none";
+  }
+
   if (!year) {
     emptyWarningTexts[2].style.display = "inline";
     flag = false;
   }
+  else{
+    emptyWarningTexts[2].style.display = "none";
+  }
+
   if (!day || !month || !day) {
     roundButton.style.top = "7.5rem";
     flag = false;
+  } else {
+    emptyWarningTexts.forEach((emptyWarningText) => {
+      emptyWarningText.style.display = "none";
+    });
   }
+
+  /**
+   * If all required inputs exist
+   * proceed field validation
+   */
   if (month < 1 || month > 12) {
     const invalidWarningParagraph = document.createElement("p");
+    const existingInvalidWarningParagraph = document.querySelector(
+      "div:has(>#month) .invalid-warning-text"
+    );
+    // console.log(existingInvalidWarningParagraph)
+    if (existingInvalidWarningParagraph) {
+      existingInvalidWarningParagraph.remove();
+    }
+
     const monthInputFlexbox = document.querySelector("div:has(>#month)");
     invalidWarningParagraph.textContent = "Invalid Month";
-    // invalidWarningParagraph.style.color = "hsl(var(--primary-color-light-red))"
-    invalidWarningParagraph.classList.add("empty-warning-text");
+    invalidWarningParagraph.classList.add("invalid-warning-text");
+    invalidWarningParagraph.style.display = "inline";
     monthInputFlexbox.appendChild(invalidWarningParagraph);
     flag = false;
   }
+
   if (day < 1 || day > 31) {
     const invalidWarningParagraph = document.createElement("p");
     const dayInputFlexbox = document.querySelector("div:has(>#day)");
     invalidWarningParagraph.textContent = "Invalid Day";
     invalidWarningParagraph.classList.add("empty-warning-text");
+    invalidWarningParagraph.style.display = "inline";
     dayInputFlexbox.appendChild(invalidWarningParagraph);
     flag = false;
+  }
+
+  if (year && month && day) {
+    userInputYear = userInputDate.getFullYear();
   }
   if (userInputYear > currentYear) {
     const invalidWarningParagraph = document.createElement("p");
     const yearInputFlexbox = document.querySelector("div:has(>#year)");
     invalidWarningParagraph.textContent = "Invalid Year";
     invalidWarningParagraph.classList.add("empty-warning-text");
+    invalidWarningParagraph.style.display = "inline";
     yearInputFlexbox.appendChild(invalidWarningParagraph);
     flag = false;
   }
@@ -60,22 +105,11 @@ const calculateDateDiff = (userInputDate) => {
   // console.log(diff)
   return result;
 };
+
 function addSpaceBetweenDigits(numStr) {
   return numStr.split("").join(" ");
 }
 
-/**
- * These are the value that users put
- */
-let day;
-let month;
-let year;
-let userInputDate;
-// const result = {
-//   days: null,
-//   months: null,
-//   years: null,
-// };
 /**
  * when there is an input,
  * update the variables(day, month, year)  */
@@ -105,6 +139,9 @@ yearInput.oninput = (event) => {
 };
 
 roundButton.onclick = (event) => {
+  if (!validation(day, month, year)) {
+    return;
+  }
   let result = {};
   const yearDiffDisplaySpan = document.querySelector(".year .number");
   const monthDiffDisplaySpan = document.querySelector(".month .number");
@@ -113,10 +150,7 @@ roundButton.onclick = (event) => {
   let monthsStrWithSpace;
   let daysStrWithSpace;
   event.stopPropagation();
-  if (validation(day, month, year)) {
-    result = calculateDateDiff(userInputDate);
-  }
-
+  result = calculateDateDiff(userInputDate);
   const { years, months, days } = result;
   yearsStrWithSpace = addSpaceBetweenDigits(years.toString());
   daysStrWithSpace = addSpaceBetweenDigits(days.toString());
