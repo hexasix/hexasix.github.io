@@ -30,15 +30,17 @@ const updateInvalidParagraph = (type) => {
   invalidWarningParagraph.classList.add("invalid-warning-text");
   invalidWarningParagraph.style.display = "inline";
   inputFlexbox.appendChild(invalidWarningParagraph);
-}
+};
 const validation = (day, month, year) => {
   const currentYear = new Date().getFullYear();
   //If the inputs are empty
   let flag = true;
-  const invalidWarningParagraphs = document.querySelectorAll(".invalid-warning-text")
-  invalidWarningParagraphs.forEach(invalidWarningParagraph => {
-    invalidWarningParagraph.remove()
-  })
+  const invalidWarningParagraphs = document.querySelectorAll(
+    ".invalid-warning-text"
+  );
+  invalidWarningParagraphs.forEach((invalidWarningParagraph) => {
+    invalidWarningParagraph.remove();
+  });
 
   emptyWarningTexts.forEach((emptyWarningText) => {
     emptyWarningText.style.display = "none";
@@ -68,18 +70,17 @@ const validation = (day, month, year) => {
    * proceed field validation
    */
   if (month < 1 || month > 12) {
-    updateInvalidParagraph("month")
+    updateInvalidParagraph("month");
     flag = false;
   }
 
   if (day < 1 || day > 31) {
-    updateInvalidParagraph("day")
+    updateInvalidParagraph("day");
     flag = false;
   }
 
-
-  if (year && (year > currentYear)) {
-    updateInvalidParagraph("year")
+  if (year && year > currentYear) {
+    updateInvalidParagraph("year");
     flag = false;
   }
   //------------------------------------------------------
@@ -91,12 +92,14 @@ const validation = (day, month, year) => {
   //------------------------------------------------------
   //add and even month validation
   //------------------------------------------------------
-  const isLeapYear = year % 4 === 0 && year % 100 !== 0
-  if (([2, 4, 6, 9, 11].includes(month) && day > 30)
-    || (isLeapYear && month === 2 && day > 29)
-    || (!isLeapYear && month === 2 && day > 28)) {
-    alert("invalid Date")
-    flag = false
+  const isLeapYear = year % 4 === 0 && year % 100 !== 0;
+  if (
+    ([2, 4, 6, 9, 11].includes(month) && day > 30) ||
+    (isLeapYear && month === 2 && day > 29) ||
+    (!isLeapYear && month === 2 && day > 28)
+  ) {
+    alert("invalid Date");
+    flag = false;
   }
 
   return flag;
@@ -107,7 +110,7 @@ const calculateDateDiff = (userInputDate) => {
   const diff = moment.preciseDiff(now, userInputDate, true);
   const { days, months, years } = diff;
   const result = { days, months, years };
-  console.log(diff)
+  console.log(diff);
   return result;
 };
 
