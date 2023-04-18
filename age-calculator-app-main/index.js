@@ -15,21 +15,21 @@ let userInputDate;
  * @param {String} type "day","month","year"
  * Cannot be other values
  */
-const updateInvalidParagraph = (type)=>{
-    //remove previous
-    const existingInvalidWarningParagraph = document.querySelector(
-      `div:has(>#${type}) .invalid-warning-text`
-    );
-    if (existingInvalidWarningParagraph) {
-      existingInvalidWarningParagraph.remove();
-    }
-    //append new <p>
-    const invalidWarningParagraph = document.createElement("p");
-    const inputFlexbox = document.querySelector(`div:has(>#${type})`);
-    invalidWarningParagraph.textContent = `Invalid ${type}`;
-    invalidWarningParagraph.classList.add("invalid-warning-text");
-    invalidWarningParagraph.style.display = "inline";
-    inputFlexbox.appendChild(invalidWarningParagraph);
+const updateInvalidParagraph = (type) => {
+  //remove previous
+  const existingInvalidWarningParagraph = document.querySelector(
+    `div:has(>#${type}) .invalid-warning-text`
+  );
+  if (existingInvalidWarningParagraph) {
+    existingInvalidWarningParagraph.remove();
+  }
+  //append new <p>
+  const invalidWarningParagraph = document.createElement("p");
+  const inputFlexbox = document.querySelector(`div:has(>#${type})`);
+  invalidWarningParagraph.textContent = `Invalid ${type}`;
+  invalidWarningParagraph.classList.add("invalid-warning-text");
+  invalidWarningParagraph.style.display = "inline";
+  inputFlexbox.appendChild(invalidWarningParagraph);
 }
 const validation = (day, month, year) => {
   const currentYear = new Date().getFullYear();
@@ -85,15 +85,21 @@ const validation = (day, month, year) => {
   //------------------------------------------------------
   //If there is an error(flag===false), move down the button
   //------------------------------------------------------
-  if(!flag){
+  if (!flag) {
     roundButton.style.top = "7.5rem";
   }
-  // if([1,3,5,7,8,10,12].includes(month)&&)
+  const isLeapYear = year % 4 === 0 && year % 100 !== 0
+  if (([2, 4, 6, 9, 11].includes(month) && day > 30)
+    || (isLeapYear && month === 2 && day > 29)
+    || (!isLeapYear && month === 2 && day > 28)) {
+    alert("invalid Date")
+    flag = false
+  }
 
   return flag;
 };
 const calculateDateDiff = (userInputDate) => {
-  console.log("input",userInputDate);
+  console.log("input", userInputDate);
   let now = moment(Date.now());
   const diff = moment.preciseDiff(now, userInputDate, true);
   const { days, months, years } = diff;
@@ -130,7 +136,7 @@ yearInput.oninput = (event) => {
   year = parseInt(event.target.value);
   if (day && month && year) {
     //in Date constructor, month calculated from 0
-    userInputDate = new Date(year, month-1, day);
+    userInputDate = new Date(year, month - 1, day);
     console.log("userInputDate", userInputDate);
   }
 };
