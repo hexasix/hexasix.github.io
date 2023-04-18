@@ -4,7 +4,6 @@ const yearInput = document.querySelector("#year");
 const roundButton = document.querySelector(".button");
 const emptyWarningTexts = document.querySelectorAll(".empty-warning-text");
 const timestampNow = new Date().getTime();
-console.log(emptyWarningTexts);
 const validation = (day, month, year) => {
   const currentYear = new Date().getFullYear();
   const userInputYear = userInputDate.getFullYear();
@@ -54,7 +53,9 @@ const validation = (day, month, year) => {
   return flag;
 };
 const calculateDateDiff = (userInputDate) =>{
-
+  let now = moment(Date.now());
+  const diff = moment.preciseDiff(now,userInputDate,true);
+  console.log(diff)
 }
 /**
  * These are the value that users put
