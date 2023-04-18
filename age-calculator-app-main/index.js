@@ -63,6 +63,7 @@ const calculateDateDiff = (userInputDate) => {
 function addSpaceBetweenDigits(numStr) {
   return numStr.split("").join(" ");
 }
+
 /**
  * These are the value that users put
  */
@@ -78,6 +79,7 @@ let userInputDate;
 /**
  * when there is an input,
  * update the variables(day, month, year)  */
+
 dayInput.oninput = (event) => {
   day = parseInt(event.target.value);
   if (day && month && year) {
@@ -85,6 +87,7 @@ dayInput.oninput = (event) => {
     console.log("userInputDate", userInputDate);
   }
 };
+
 monthInput.oninput = (event) => {
   month = parseInt(event.target.value);
   if (day && month && year) {
@@ -92,6 +95,7 @@ monthInput.oninput = (event) => {
     console.log("userInputDate", userInputDate);
   }
 };
+
 yearInput.oninput = (event) => {
   year = parseInt(event.target.value);
   if (day && month && year) {
