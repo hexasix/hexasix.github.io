@@ -88,14 +88,17 @@ const validation = (day, month, year) => {
   if(!flag){
     roundButton.style.top = "7.5rem";
   }
+  // if([1,3,5,7,8,10,12].includes(month)&&)
+
   return flag;
 };
 const calculateDateDiff = (userInputDate) => {
+  console.log("input",userInputDate);
   let now = moment(Date.now());
   const diff = moment.preciseDiff(now, userInputDate, true);
   const { days, months, years } = diff;
   const result = { days, months, years };
-  // console.log(diff)
+  console.log(diff)
   return result;
 };
 
@@ -126,7 +129,8 @@ monthInput.oninput = (event) => {
 yearInput.oninput = (event) => {
   year = parseInt(event.target.value);
   if (day && month && year) {
-    userInputDate = new Date(year, month, day);
+    //in Date constructor, month calculated from 0
+    userInputDate = new Date(year, month-1, day);
     console.log("userInputDate", userInputDate);
   }
 };
