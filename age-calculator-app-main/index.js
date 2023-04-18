@@ -11,44 +11,56 @@ let day;
 let month;
 let year;
 let userInputDate;
-
+/**
+ * @param {String} type "day","month","year"
+ * Cannot be other values
+ */
+const updateInvalidParagraph = (type)=>{
+    //remove previous
+    const existingInvalidWarningParagraph = document.querySelector(
+      `div:has(>#${type}) .invalid-warning-text`
+    );
+    if (existingInvalidWarningParagraph) {
+      existingInvalidWarningParagraph.remove();
+    }
+    //append new <p>
+    const invalidWarningParagraph = document.createElement("p");
+    const inputFlexbox = document.querySelector(`div:has(>#${type})`);
+    invalidWarningParagraph.textContent = `Invalid ${type}`;
+    invalidWarningParagraph.classList.add("invalid-warning-text");
+    invalidWarningParagraph.style.display = "inline";
+    inputFlexbox.appendChild(invalidWarningParagraph);
+}
 const validation = (day, month, year) => {
   const currentYear = new Date().getFullYear();
-  let userInputYear;
   //If the inputs are empty
   let flag = true;
+  const invalidWarningParagraphs = document.querySelectorAll(".invalid-warning-text")
+  invalidWarningParagraphs.forEach(invalidWarningParagraph => {
+    invalidWarningParagraph.remove()
+  })
+
+  emptyWarningTexts.forEach((emptyWarningText) => {
+    emptyWarningText.style.display = "none";
+  });
 
   if (!day) {
     emptyWarningTexts[0].style.display = "inline";
     flag = false;
-  }
-  else{
-    emptyWarningTexts[0].style.display = "none";
   }
 
   if (!month) {
     emptyWarningTexts[1].style.display = "inline";
     flag = false;
   }
-  else{
-    emptyWarningTexts[1].style.display = "none";
-  }
 
   if (!year) {
     emptyWarningTexts[2].style.display = "inline";
     flag = false;
   }
-  else{
-    emptyWarningTexts[2].style.display = "none";
-  }
 
   if (!day || !month || !day) {
-    roundButton.style.top = "7.5rem";
     flag = false;
-  } else {
-    emptyWarningTexts.forEach((emptyWarningText) => {
-      emptyWarningText.style.display = "none";
-    });
   }
 
   /**
@@ -56,44 +68,25 @@ const validation = (day, month, year) => {
    * proceed field validation
    */
   if (month < 1 || month > 12) {
-    const invalidWarningParagraph = document.createElement("p");
-    const existingInvalidWarningParagraph = document.querySelector(
-      "div:has(>#month) .invalid-warning-text"
-    );
-    // console.log(existingInvalidWarningParagraph)
-    if (existingInvalidWarningParagraph) {
-      existingInvalidWarningParagraph.remove();
-    }
-
-    const monthInputFlexbox = document.querySelector("div:has(>#month)");
-    invalidWarningParagraph.textContent = "Invalid Month";
-    invalidWarningParagraph.classList.add("invalid-warning-text");
-    invalidWarningParagraph.style.display = "inline";
-    monthInputFlexbox.appendChild(invalidWarningParagraph);
+    updateInvalidParagraph("month")
     flag = false;
   }
 
   if (day < 1 || day > 31) {
-    const invalidWarningParagraph = document.createElement("p");
-    const dayInputFlexbox = document.querySelector("div:has(>#day)");
-    invalidWarningParagraph.textContent = "Invalid Day";
-    invalidWarningParagraph.classList.add("empty-warning-text");
-    invalidWarningParagraph.style.display = "inline";
-    dayInputFlexbox.appendChild(invalidWarningParagraph);
+    updateInvalidParagraph("day")
     flag = false;
   }
 
-  if (year && month && day) {
-    userInputYear = userInputDate.getFullYear();
-  }
-  if (userInputYear > currentYear) {
-    const invalidWarningParagraph = document.createElement("p");
-    const yearInputFlexbox = document.querySelector("div:has(>#year)");
-    invalidWarningParagraph.textContent = "Invalid Year";
-    invalidWarningParagraph.classList.add("empty-warning-text");
-    invalidWarningParagraph.style.display = "inline";
-    yearInputFlexbox.appendChild(invalidWarningParagraph);
+
+  if (year && (year > currentYear)) {
+    updateInvalidParagraph("year")
     flag = false;
+  }
+  //------------------------------------------------------
+  //If there is an error(flag===false), move down the button
+  //------------------------------------------------------
+  if(!flag){
+    roundButton.style.top = "7.5rem";
   }
   return flag;
 };

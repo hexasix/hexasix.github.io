@@ -116,6 +116,7 @@ main .button{
 
 main .button:has(:hover){
     background-color: hsl(var(--neutral-color-off-black));
+    cursor: pointer;
 }
 /* the result display */
 
