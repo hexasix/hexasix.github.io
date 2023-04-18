@@ -52,10 +52,16 @@ const validation = (day, month, year) => {
   }
   return flag;
 };
-const calculateDateDiff = (userInputDate) =>{
+const calculateDateDiff = (userInputDate) => {
   let now = moment(Date.now());
-  const diff = moment.preciseDiff(now,userInputDate,true);
-  console.log(diff)
+  const diff = moment.preciseDiff(now, userInputDate, true);
+  const { days, months, years } = diff;
+  const result = { days, months, years };
+  // console.log(diff)
+  return result;
+};
+function addSpaceBetweenDigits(numStr) {
+  return numStr.split("").join(" ");
 }
 /**
  * These are the value that users put
@@ -64,6 +70,11 @@ let day;
 let month;
 let year;
 let userInputDate;
+// const result = {
+//   days: null,
+//   months: null,
+//   years: null,
+// };
 /**
  * when there is an input,
  * update the variables(day, month, year)  */
@@ -90,8 +101,24 @@ yearInput.oninput = (event) => {
 };
 
 roundButton.onclick = (event) => {
+  let result = {};
+  const yearDiffDisplaySpan = document.querySelector(".year .number");
+  const monthDiffDisplaySpan = document.querySelector(".month .number");
+  const dayDiffDisplaySpan = document.querySelector(".day .number");
+  let yearsStrWithSpace;
+  let monthsStrWithSpace;
+  let daysStrWithSpace;
   event.stopPropagation();
-  if(validation(day,month,year)){
-    calculateDateDiff(userInputDate);
+  if (validation(day, month, year)) {
+    result = calculateDateDiff(userInputDate);
   }
+
+  const { years, months, days } = result;
+  yearsStrWithSpace = addSpaceBetweenDigits(years.toString());
+  daysStrWithSpace = addSpaceBetweenDigits(days.toString());
+  monthsStrWithSpace = addSpaceBetweenDigits(months.toString());
+  //change DOM
+  yearDiffDisplaySpan.textContent = yearsStrWithSpace;
+  monthDiffDisplaySpan.textContent = monthsStrWithSpace;
+  dayDiffDisplaySpan.textContent = daysStrWithSpace;
 };
