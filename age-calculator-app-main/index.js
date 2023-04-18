@@ -88,6 +88,9 @@ const validation = (day, month, year) => {
   if (!flag) {
     roundButton.style.top = "7.5rem";
   }
+  //------------------------------------------------------
+  //add and even month validation
+  //------------------------------------------------------
   const isLeapYear = year % 4 === 0 && year % 100 !== 0
   if (([2, 4, 6, 9, 11].includes(month) && day > 30)
     || (isLeapYear && month === 2 && day > 29)
