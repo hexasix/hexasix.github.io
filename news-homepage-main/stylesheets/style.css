@@ -322,6 +322,7 @@ body main aside {
   .hamburger {
     position: relative;
     align-self: center;
+    display: block;
   }
   .hamburger,
   .hamburger::before,
