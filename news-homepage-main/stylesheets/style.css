@@ -179,10 +179,13 @@ body main aside > div.flex-column {
 /* main */
 
 /* main article overview readmore*/
+.hamburger {
+  display: none;
+}
 .readmore {
   --button-height: 3.8rem;
   /* width: 11rem; */
-  width:clamp(11rem,50%,50%);
+  width: clamp(11rem, 50%, 50%);
   color: hsl(var(--neutral-off-white));
   font-size: 1.5rem;
   letter-spacing: 0.2rem;
@@ -270,16 +273,15 @@ body main aside {
     margin: 50% 0 0 0;
     width: max-content;
   }
-body header nav ul > *{
-  align-self: start;
-}
-body header nav ul > * a{
-
-  /* typography */
-  font-size: 1.5rem;
-  font-weight:700;
-  color:hsl(var(--neutral-very-dark-blue));
-}
+  body header nav ul > * {
+    align-self: start;
+  }
+  body header nav ul > * a {
+    /* typography */
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: hsl(var(--neutral-very-dark-blue));
+  }
   body main {
     display: grid;
     grid-template-columns: 1fr;
@@ -361,6 +363,6 @@ body header nav ul > * a{
   }
   .hamburger-active .filter {
     display: block;
-    z-index:0;
+    z-index: 0;
   }
 }
